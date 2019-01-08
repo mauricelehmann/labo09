@@ -1,21 +1,20 @@
 #include <iostream>
-#include <string>
 #include <fstream> // pour ifstream
+#include "header/lecture.h"
 
 using namespace std;
 
 
+vector<string> lecture(const string& fichier){
 
-int main(){
+    vector<string> v;
 
-    ifstream s("dico/dictionary.txt");
+    ifstream s("dico/"+fichier+".txt");
     string line;
 
     while (getline(s, line)) {
-      cout << line << endl;
+      v.push_back(line);
     }
     s.close();
-
-
-    return 0;
+    return v;
 }
