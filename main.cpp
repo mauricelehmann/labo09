@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include "header/lecture.h"
+#include "header/recherche.h"
 using namespace std;
 
 int main(){
@@ -11,9 +12,11 @@ int main(){
 
 
     //Pour tester la fonction lecture :
-    for(auto mot : v ){
-        cout << mot << endl;
-    }
+    // for(auto mot : v ){
+    //     cout << mot << endl;
+    // }
+
+
 
     return EXIT_SUCCESS;
 }

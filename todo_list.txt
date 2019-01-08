@@ -1,7 +1,7 @@
 Labo 09
 
 Les deux :
-    - Fonction lecture (lecture.cpp)
+    - Fonction lecture (lecture.cpp) -> OK ?
 
 Gabrielle :
 
