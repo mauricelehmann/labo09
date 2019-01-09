@@ -5,12 +5,14 @@
 
     #include <string>
     #include <vector>
+    #include <iostream> //A supprimer ?
 
     #define strVector std::vector<std::string>
     #define strIterator std::vector<std::string>::iterator
 
-    strIterator rechercheDichotomique(const strVector& dico,const std::string& mot);
+    bool estPlusGrand(const std::string& str1, const std::string& str2);
+    size_t rechercheDichotomique(const strVector& dico,const std::string& mot);
     //Surcharge de la premier fonction -> TODO : Doc doxygen
-    strIterator rechercheDichotomique(const strIterator& itBegin,const strIterator& itEnd,const std::string& mot);
+    strIterator rechercheDichotomique(strIterator itDebut,strIterator itFin,const std::string& mot);
 
 #endif // RECHERCHE_H
