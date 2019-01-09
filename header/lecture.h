@@ -7,6 +7,10 @@
     #include <string>
     #include <vector>
 
+    /**
+     * [permet de lire un dictionnaire]
+     * @param fichier [nom du fichier à lire]
+     */
     std::vector<std::string> lecture(const std::string& fichier);
     /**
      * [inverse l'ordre des mots d'un dictionnaire]
