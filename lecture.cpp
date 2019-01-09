@@ -32,3 +32,16 @@ vector<string> inverser(const string& fichier) {
 
   return v;
 }
+
+vector<string> trier(const string& fichier) {
+  vector<int> v;
+
+  ifstream s("dico/"+fichier+".txt");
+  string line;
+
+  while(getline(s, line)) {
+    
+  }
+  s.close();
+  return v;
+}

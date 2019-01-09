@@ -9,7 +9,7 @@ int main(){
 
     vector<string> v;
     v = lecture("nato");
-    std::vector<string> v2;
+    vector<string> v2;
     v2 = inverser("otan");
 
 
