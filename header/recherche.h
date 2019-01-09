@@ -16,7 +16,7 @@
      * @param  mot  [description]
      * @return      [description]
      */
-    strIterator rechercheLineaire(const strVector& dico, const std::string& mot);
+    size_t rechercheLineaire(const strVector& dico, const std::string& mot);
     /**
      * [rechercheLineaire description]
      * @param  itBegin [description]
@@ -25,9 +25,31 @@
      * @return         [description]
      */
     strIterator rechercheLineaire(const strIterator& itBegin,const strIterator& itEnd,const std::string& mot);
-
-    strIterator rechercheDichotomique(const strVector& dico,const std::string& mot);
-    //Surcharge de la premier fonction -> TODO : Doc doxygen
+    /**
+     * [rechercheDichotomique description]
+     * @param  dico [description]
+     * @param  mot  [description]
+     * @return      [description]
+     */
+    size_t rechercheDichotomique(const strVector& dico,const std::string& mot);
+    /**
+     * [rechercheDichotomique description]
+     * @param  itDebut [description]
+     * @param  itFin   [description]
+     * @param  mot     [description]
+     * @return         [description]
+     */
     strIterator rechercheDichotomique(strIterator itDebut,strIterator itFin,const std::string& mot);
+
+    /**
+     * [rechercheDichotomiqueRecursive description]
+     * @param  dico  [description]
+     * @param  mot   [description]
+     * @param  debut [description]
+     * @param  fin   [description]
+     * @return       [description]
+     */
+    bool rechercheDichotomiqueRecursive(const strVector& dico,const string& mot, int debut = 0, int fin = -1 );
+
 
 #endif // RECHERCHE_H
