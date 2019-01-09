@@ -49,7 +49,7 @@
      * @param  fin   [description]
      * @return       [description]
      */
-    bool rechercheDichotomiqueRecursive(const strVector& dico,const string& mot, int debut = 0, int fin = -1 );
+    bool rechercheDichotomiqueRecursive(const strVector& dico,const std::string& mot,int debut, int fin);
 
 
 #endif // RECHERCHE_H
