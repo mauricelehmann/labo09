@@ -10,8 +10,23 @@
     #define strVector std::vector<std::string>
     #define strIterator std::vector<std::string>::iterator
 
-    bool estPlusGrand(const std::string& str1, const std::string& str2);
-    size_t rechercheDichotomique(const strVector& dico,const std::string& mot);
+    /**
+     * [rechercheLineaire description]
+     * @param  dico [description]
+     * @param  mot  [description]
+     * @return      [description]
+     */
+    strIterator rechercheLineaire(const strVector& dico, const std::string& mot);
+    /**
+     * [rechercheLineaire description]
+     * @param  itBegin [description]
+     * @param  itEnd   [description]
+     * @param  mot     [description]
+     * @return         [description]
+     */
+    strIterator rechercheLineaire(const strIterator& itBegin,const strIterator& itEnd,const std::string& mot);
+
+    strIterator rechercheDichotomique(const strVector& dico,const std::string& mot);
     //Surcharge de la premier fonction -> TODO : Doc doxygen
     strIterator rechercheDichotomique(strIterator itDebut,strIterator itFin,const std::string& mot);
 
