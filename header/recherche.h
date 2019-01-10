@@ -10,8 +10,6 @@
     #define strVector std::vector<std::string>
     #define strIterator strVector::iterator
 
-
-    bool estPlusGrand(const std::string& str1, const std::string& str2);
     /**
      * [rechercheLineaire description]
      * @param  dico [description]
