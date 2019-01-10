@@ -19,7 +19,11 @@ vector<string> lecture(const string& fichier){
 }
 
 void inverser(vector<string>& dico) {
+  size_t taille = dico.size();
 
+  for (size_t i = 0, j = taille - 1; i < (taille/2); i++, j--) {
+    swap(dico.at(i),dico.at(j));
+  }
 }
 
 void triABulle(vector<string>& dico){

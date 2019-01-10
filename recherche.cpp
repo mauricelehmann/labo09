@@ -2,6 +2,25 @@
 #include "header/utilitaire.h"
 using namespace std;
 
+size_t rechercheLineaire(const strVector& dico, const string& mot) {
+  size_t indiceMot, fin;
+  indiceMot = size_t(-1);
+  fin = dico.size();
+
+  for (size_t i = 0; i < fin; i++) {
+    if(dico.at(i) == mot) {
+      return i;
+    }
+  }
+
+  return indiceMot;
+}
+
+strIterator rechercheLineaire(const strIterator& itBegin,const strIterator& itEnd,const string& mot) {
+  strIterator i;
+  return i;
+}
+
 /**
  * [rechercheDichotomique description]
  * @param  dico [description]

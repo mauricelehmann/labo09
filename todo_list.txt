@@ -5,7 +5,7 @@ Les deux :
 
 Gabrielle :
 
- - Fonction inverser (lecture.cpp)
+ - Fonction inverser (lecture.cpp) OK
  - Fonction trier (bubble sort)(lecture.cpp) OK
 
  - Fonction rechercheLinéaire - Version avec vecteur en parametre (recherche.cpp)
