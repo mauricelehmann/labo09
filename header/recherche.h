@@ -8,7 +8,7 @@
     #include <iostream> //A supprimer ?
 
     #define strVector std::vector<std::string>
-    #define strIterator std::vector<std::string>::iterator
+    #define strIterator strVector::iterator
 
 
     bool estPlusGrand(const std::string& str1, const std::string& str2);
