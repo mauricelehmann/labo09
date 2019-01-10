@@ -1,12 +1,12 @@
 Labo 09
 
 Les deux :
-    - Fonction lecture (lecture.cpp) -> OK ?
+    - Fonction lecture (lecture.cpp) -> OK
 
 Gabrielle :
 
  - Fonction inverser (lecture.cpp)
- - Fonction trier (bubble sort)(lecture.cpp)
+ - Fonction trier (bubble sort)(lecture.cpp) OK
 
  - Fonction rechercheLinéaire - Version avec vecteur en parametre (recherche.cpp)
  - Fonction rechercheLinéaire - Version avec iterateurs en parametre (recherche.cpp)
@@ -15,8 +15,8 @@ Gabrielle :
 Maurice :
  - TODO : Check les cas de figure ou le dico est vide ?
 
- - Fonction recherche dichotomique -  Version avec vecteur en parametre (recherche.cpp)
+ - Fonction recherche dichotomique -  Version avec vecteur en parametre (recherche.cpp) OK
  - Fonction recherche dichotomique -  Version avec iterateurs en parametre (recherche.cpp) - OK
 
- - Fonction recherche dichotomique et recursive -  Version avec vecteur en parametre (recherche.cpp)
+ - Fonction recherche dichotomique et recursive -  Version avec vecteur en parametre (recherche.cpp) OK
  - Fonction recherche dichotomique et recursive -  Version avec iterateurs en parametre (recherche.cpp)
