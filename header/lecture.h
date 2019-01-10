@@ -16,19 +16,10 @@
      * [inverse l'ordre des mots d'un dictionnaire]
      * @param fichier [nom du fichier à inverser]
      */
-    std::vector<std::string> inverser(const std::string& fichier);
+    void inverser(vector<string>& dico)
     /**
-     * [met les mots d'un dictionnaire pas trié dans l'ordre alphabetique]
-     * @param fichier [nom du fichier à trier]
+     * [triABulle trie les string d'un vecteur et les mets dans l'ordre alphabétique]
+     * @param dico [vecteur à trier]
      */
-    std::vector<std::string> trier(const std::string& fichier);
-    /**
-     * [echanger description]
-     * @param v [description]
-     * @param i [description]
-     * @param j [description]
-     */
-    //void echanger(std::vector<std::string>& v, int i, int j);
-
     void triABulle(std::vector<std::string>& dico);
 #endif // LECTURE_H
