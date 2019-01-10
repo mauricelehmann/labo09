@@ -9,8 +9,9 @@ using namespace std;
 int main(){
 
     vector<string> dico;
-    dico = lecture("dicoTest");
+    dico = lecture("dico/nato.txt");
 
+    
 
     return EXIT_SUCCESS;
 }

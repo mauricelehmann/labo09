@@ -1,5 +1,4 @@
 #include <iostream>
-#include <stdlib.h>
 #include <fstream> // pour ifstream
 #include <algorithm>
 #include "header/lecture.h"
@@ -12,7 +11,7 @@ vector<string> lecture(const string& fichier){
 
     vector<string> v;
 
-    ifstream s("dico/"+fichier+".txt");
+    ifstream s(fichier);
     string line;
 
     while (getline(s, line)) {
@@ -23,35 +22,31 @@ vector<string> lecture(const string& fichier){
 }
 
 vector<string> inverser(const string& fichier) {
-  vector<string> v;
+    vector<string> v;
 
-  ifstream s("dico/"+fichier+".txt");
-  string line;
+    ifstream s("dico/"+fichier+".txt");
+    string line;
 
-  while(getline(s, line)) {
+    while(getline(s, line)) {
     v.insert(v.begin(), line);
-  }
-  s.close();
+    }
+    s.close();
 
-  return v;
+    return v;
 }
 
 void triABulle(vector<string>& dico){
-  bool tableauTrie;
-  int nbSwap = 0;
-  for(size_t i = dico.size() - 1 ; i > 0 ; i--){
-    tableauTrie = true;
-    for(size_t j = 0 ; j <= (i - 1) ; j++ ){
-      if(estPlusGrand(dico.at(j),dico.at(j+1))){
-        nbSwap++;
-        cout << "nb de swap : " << nbSwap << endl;
-        system("CLS");
-        swap(dico.at(j+1),dico.at(j));
-        tableauTrie = false;
-      }
+    bool tableauTrie;
+    for(size_t i = dico.size() - 1 ; i > 0 ; i--){
+        tableauTrie = true;
+        for(size_t j = 0 ; j <= (i - 1) ; j++ ){
+            if(estPlusGrand(dico.at(j),dico.at(j+1))){
+                swap(dico.at(j+1),dico.at(j));
+                tableauTrie = false;
+            }
+        }
+        if(tableauTrie){
+            break;
+        }
     }
-    if(tableauTrie){
-      break;
-    }
-  }
 }
