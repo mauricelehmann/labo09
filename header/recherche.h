@@ -53,5 +53,13 @@
      */
     bool rechercheDichotomiqueRecursive(const strVector& dico,const std::string& mot,int debut, int fin);
 
+    /**
+     * [rechercheDichotomiqueRecursive description]
+     * @param  debut [description]
+     * @param  fin   [description]
+     * @param  mot   [description]
+     * @return       [description]
+     */
+    bool rechercheDichotomiqueRecursive(strIterator debut,strIterator fin,const std::string& mot);
 
 #endif // RECHERCHE_H

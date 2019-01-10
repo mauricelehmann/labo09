@@ -111,3 +111,36 @@ bool rechercheDichotomiqueRecursive(const strVector& dico,const string& mot, int
         return rechercheDichotomiqueRecursive(dico,mot,milieu+1,fin);
     }
 }
+/**
+ * Surcharge de rechercheDichotomiqueRecursive, avec des itérateurs en paramètres à la place du vecteur "dico"
+ * Le fonctionnement de l'algorithme est le même
+ * Nous utilisons néanmoins des fonctions spéciale de la lib. vector pour incrémenter les itérateur, tel que advance()
+ * @param  debut [description]
+ * @param  fin   [description]
+ * @param  mot   [description]
+ * @return       [description]
+ */
+bool rechercheDichotomiqueRecursive(strIterator debut,strIterator fin,const string& mot){
+
+    strIterator milieu = debut;
+
+    if(debut == fin){
+        if(*debut == mot ){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    //On definit le nouveau milieu
+    advance(milieu,(distance(debut,fin) / 2 )) ;
+    if(*milieu == mot ){
+        return true;
+    }
+    if(estPlusGrand(*milieu, mot)){
+        advance(milieu,-1);
+        return rechercheDichotomiqueRecursive(debut,milieu,mot);
+    }else{
+        advance(milieu,1);
+        return rechercheDichotomiqueRecursive(milieu,fin,mot);
+    }
+}
