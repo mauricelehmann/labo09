@@ -22,5 +22,11 @@ int main(){
     //   cout << mot << endl;
     // }
 
+    //test rechercheLineaire
+    // size_t test = rechercheLineaire(dico, "Zulur");
+    // size_t test2 = rechercheLineaire(dico, "nul");
+    // cout << test << endl;
+    // cout << test2 << endl;
+
     return EXIT_SUCCESS;
 }
