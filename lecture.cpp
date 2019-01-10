@@ -21,18 +21,8 @@ vector<string> lecture(const string& fichier){
     return v;
 }
 
-vector<string> inverser(const string& fichier) {
-    vector<string> v;
+void inverser(vector<string>& dico) {
 
-    ifstream s("dico/"+fichier+".txt");
-    string line;
-
-    while(getline(s, line)) {
-    v.insert(v.begin(), line);
-    }
-    s.close();
-
-    return v;
 }
 
 void triABulle(vector<string>& dico){
