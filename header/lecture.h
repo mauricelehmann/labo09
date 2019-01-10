@@ -22,5 +22,13 @@
      * @param fichier [nom du fichier à trier]
      */
     std::vector<std::string> trier(const std::string& fichier);
+    /**
+     * [echanger description]
+     * @param v [description]
+     * @param i [description]
+     * @param j [description]
+     */
+    //void echanger(std::vector<std::string>& v, int i, int j);
 
+    void triABulle(std::vector<std::string>& dico);
 #endif // LECTURE_H
