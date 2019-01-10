@@ -2,7 +2,7 @@
 #include <fstream> // pour ifstream
 #include <algorithm>
 #include "header/lecture.h"
-#include "header/recherche.h"
+#include "header/utilitaire.h"
 
 using namespace std;
 
