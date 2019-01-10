@@ -82,6 +82,7 @@ strIterator rechercheDichotomique(strIterator itDebut,strIterator itFin,const st
         //On initialise l'iterateur du milieu
         itMilieu = itDebut;
         //On définit le nouveau milieu
+        //la fonction advance(iterateur, nb d'incrementation) permet d'incrementer un iterateur
         advance(itMilieu,(distance(itDebut,itFin) / 2 )) ;
         //Check si l'element du milieu est celui qu'on cherche
         if(*itMilieu == mot){

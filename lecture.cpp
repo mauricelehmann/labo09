@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdlib.h>
 #include <fstream> // pour ifstream
 #include <algorithm>
 #include "header/lecture.h"
@@ -37,10 +38,14 @@ vector<string> inverser(const string& fichier) {
 
 void triABulle(vector<string>& dico){
   bool tableauTrie;
+  int nbSwap = 0;
   for(size_t i = dico.size() - 1 ; i > 0 ; i--){
     tableauTrie = true;
     for(size_t j = 0 ; j <= (i - 1) ; j++ ){
       if(estPlusGrand(dico.at(j),dico.at(j+1))){
+        nbSwap++;
+        cout << "nb de swap : " << nbSwap << endl;
+        system("CLS");
         swap(dico.at(j+1),dico.at(j));
         tableauTrie = false;
       }
@@ -50,15 +55,3 @@ void triABulle(vector<string>& dico){
     }
   }
 }
-/*
-tri_à_bulles_optimisé(Tableau T)
-    pour i allant de taille de T - 1 à 1
-        tableau_trié := vrai
-        pour j allant de 0 à i - 1
-            si T[j+1] < T[j]
-                échanger(T[j+1], T[j])
-                tableau_trié := faux
-        si tableau_trié
-            fin tri_à_bulles_optimisé
-
- */
