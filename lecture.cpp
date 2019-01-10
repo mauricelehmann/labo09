@@ -35,16 +35,6 @@ vector<string> inverser(const string& fichier) {
   return v;
 }
 
-<<<<<<< Updated upstream
-vector<string> trier(const string& fichier) {
-  vector<string> v;
-
-  ifstream s("dico/"+fichier+".txt");
-  string line;
-
-  while(getline(s, line)) {
-
-=======
 void triABulle(vector<string>& dico){
   bool tableauTrie;
   for(size_t i = dico.size() - 1 ; i > 0 ; i--){
@@ -58,7 +48,6 @@ void triABulle(vector<string>& dico){
     if(tableauTrie){
       break;
     }
->>>>>>> Stashed changes
   }
 }
 /*
