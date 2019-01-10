@@ -1,6 +1,3 @@
-#include <iostream>
-#include <fstream> // pour ifstream
-#include <algorithm>
 #include "header/lecture.h"
 #include "header/utilitaire.h"
 

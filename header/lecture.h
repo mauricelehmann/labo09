@@ -5,7 +5,9 @@
 #define LECTURE_H
 
     #include <string>
-    #include <vector>
+    #include <vector> 
+    #include <fstream> // pour ifstream
+    #include <algorithm> //Pour swap()
 
     /**
      * [permet de lire un dictionnaire]
