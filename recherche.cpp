@@ -16,9 +16,13 @@ size_t rechercheLineaire(const strVector& dico, const string& mot) {
   return indiceMot;
 }
 
-strIterator rechercheLineaire(const strIterator& itBegin,const strIterator& itEnd,const string& mot) {
-  strIterator i;
-  return i;
+strIterator rechercheLineaire(strIterator itBegin,strIterator itEnd,const std::string& mot) {
+  for (auto i = itBegin; i != itEnd; i++) {
+    if (*i == mot) {
+      return i;
+    }
+  }
+  return itEnd;
 }
 
 /**
