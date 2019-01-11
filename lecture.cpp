@@ -3,7 +3,12 @@
 
 using namespace std;
 
-
+/**
+ * Rempli et retourne un vecteur string contenant les éléments d'un fichier
+ * Converti également les mots en majuscule pour les futurs comparaisons
+ * @param  fichier [description]
+ * @return         [description]
+ */
 vector<string> lecture(const string& fichier){
 
     vector<string> v;
@@ -12,7 +17,9 @@ vector<string> lecture(const string& fichier){
     string line;
 
     while (getline(s, line)) {
-      v.push_back(line);
+        //On insert le mot récupéré du fichier, en le normalisant avant, càd le tout en majuscule
+        normaliserString(line);
+        v.push_back(line);
     }
     s.close();
     return v;

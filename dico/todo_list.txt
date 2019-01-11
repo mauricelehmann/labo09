@@ -19,4 +19,4 @@ Maurice :
  - Fonction recherche dichotomique -  Version avec iterateurs en parametre (recherche.cpp) - OK
 
  - Fonction recherche dichotomique et recursive -  Version avec vecteur en parametre (recherche.cpp) OK
- - Fonction recherche dichotomique et recursive -  Version avec iterateurs en parametre (recherche.cpp)
+ - Fonction recherche dichotomique et recursive -  Version avec iterateurs en parametre (recherche.cpp) OK

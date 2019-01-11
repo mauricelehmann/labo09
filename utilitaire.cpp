@@ -2,7 +2,7 @@
 
 using namespace std;
 
-bool estPlusGrand(const std::string& str1, const std::string& str2){
+bool estPlusGrand(const string& str1, const string& str2){
     for( size_t indice = 0 ; indice < str1.size() ; indice++ ){
         //On check que l'indice ne dépasse pas la taille de str2
         if(indice < str2.size()){
@@ -18,4 +18,8 @@ bool estPlusGrand(const std::string& str1, const std::string& str2){
         }
     }
     return false ;
+}
+
+void normaliserString(string& str){
+    transform(str.begin(), str.end(),str.begin(), ::toupper);
 }

@@ -5,7 +5,9 @@
 
     #include <string>
     #include <vector>
-    #include <iostream> //A supprimer ?
+    #include <ctype.h> //toupper()
+    #include <algorithm> //transform()
+    //#include <iostream> //A supprimer ?
 
     #define strVector std::vector<std::string>
     #define strIterator strVector::iterator

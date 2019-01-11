@@ -27,6 +27,8 @@ strIterator rechercheLineaire(const strIterator& itBegin,const strIterator& itEn
  * @param  mot  [description]
  * @return      [description]
  */
+#include <iostream>
+
 size_t rechercheDichotomique(const strVector& dico,const string& mot){
 
     size_t debut, milieu, fin, positionRetourne;
