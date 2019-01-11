@@ -26,7 +26,7 @@
      * @param  mot     [description]
      * @return         [description]
      */
-    strIterator rechercheLineaire(const strIterator& itBegin,const strIterator& itEnd,const std::string& mot);
+     strIterator rechercheLineaire(strIterator itBegin,strIterator itEnd,const std::string& mot);
     /**
      * [rechercheDichotomique description]
      * @param  dico [description]
