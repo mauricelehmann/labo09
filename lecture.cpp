@@ -48,3 +48,9 @@ void triABulle(vector<string>& dico){
         }
     }
 }
+
+void afficherDico(const std::vector<std::string>& dico){
+    for(auto mot : dico){
+        cout << mot << endl;
+    }
+}

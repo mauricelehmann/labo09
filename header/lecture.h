@@ -7,6 +7,7 @@
     #include <string>
     #include <vector>
     #include <fstream> // pour ifstream
+    #include <iostream>
     //#include <algorithm> //Pour swap()
 
     /**
@@ -24,4 +25,9 @@
      * @param dico [vecteur à trier]
      */
     void triABulle(std::vector<std::string>& dico);
+    /**
+     * [afficherDico description]
+     * @param dico [description]
+     */
+    void afficherDico(const std::vector<std::string>& dico);
 #endif // LECTURE_H
