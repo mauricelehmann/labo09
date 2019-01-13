@@ -1,13 +1,44 @@
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : 09
+ Fichier     : recherche.cpp
+ Auteur(s)   : Gabrielle Thurnherr, Maurice Lehmann
+ Date        : 13.01.2019
+
+ But         : Contient les fonctions de recherche linéaire, dichotomique (recursive et simple)
+               Chaque fonction est surchargée afin d'accepter plusieurs type de paramètres tel que :
+               f( iterateur de debut du dico , iterateur de fin du dico , mot a rechercher )
+               -> retourne un itérateur de vecteur
+               ou
+               f( dictionnaire, mot a rechercher )
+               -> retourne un size_t correspondant à un indexe
+
+               Les fonctions recursive retourne un booléen, vrais pour trouvé, sinon faux
+
+ Compilateur : MinGW-g++
+ -----------------------------------------------------------------------------------
+*/
+
 #include "header/recherche.h"
 #include "header/utilitaire.h"
 using namespace std;
 
+/**
+ * Recherche une chaine de charactère avec les élément d'une liste donnée
+ * Compare la chaine avec les élément de la liste
+ * Complexité en temps : O(n)
+ * @param  dico Liste dans laquelle on cherche
+ * @param  mot  string du mot a chercher
+ * @return      Position du mot à chercher dans la liste
+ *              Retourne size_t(-1) si le mot n'est pas dans la liste
+ */
 size_t rechercheLineaire(const strVector& dico, const string& mot) {
   size_t indiceMot, fin;
   indiceMot = size_t(-1);
   fin = dico.size();
-
+  //Pour chaque élément du dictionnaire :
   for (size_t i = 0; i < fin; i++) {
+    //On compare chaque élément avec le mot recherché
     if(dico.at(i) == mot) {
       return i;
     }
@@ -16,8 +47,21 @@ size_t rechercheLineaire(const strVector& dico, const string& mot) {
   return indiceMot;
 }
 
+/**
+ * Recherche une chaine de charactère avec les élément d'une liste donnée
+ * Compare la chaine avec les élément de la liste
+ * Complexité en temps : O(n)
+ * @param  itBegin Itérateur vector<string> du premier élément de la liste
+ * @param  itEnd   Itérateur vector<string> du dernier élément de la liste
+ * @param  mot     string du mot a chercher
+ * @return      Iterateur vector<string> du mot à chercher dans la liste
+ *              Retourne liste.end() si l'élément n'est pas trouvé
+ */
 strIterator rechercheLineaire(strIterator itBegin,strIterator itEnd,const std::string& mot) {
-  for (auto i = itBegin; i != itEnd; i++) {
+
+  //Pour chaque élément du dictionnaire :
+  for (strIterator i = itBegin; i != itEnd; i++) {
+    //On compare chaque élément avec le mot recherché
     if (*i == mot) {
       return i;
     }
@@ -26,13 +70,19 @@ strIterator rechercheLineaire(strIterator itBegin,strIterator itEnd,const std::s
 }
 
 /**
- * [rechercheDichotomique description]
- * @param  dico [description]
- * @param  mot  [description]
- * @return      [description]
+ * Recherche une chaine de charactère dans une liste ordrée
+ * Utilise un algorithm de recherche dichotomique :
+ * Le premier élément est celui du milieu de la liste
+ * Selon sa grandeur par rapport au mot chercher, on redéfinit les bornes de recherches
+ * Si il est plus grand, on cherche sur la partie de droite (milieu -> fin)
+ * Sinon sur la partie de gauche (Début -> milieu)
+ *
+ * Complexité en temps : O(log n)
+ *
+ * @param  dico vector<string> Liste dans laquelle on cherche
+ * @param  mot  string Mot a rechercher
+ * @return positionRetourne size_t  Position du mot à chercher dans la liste
  */
-#include <iostream>
-
 size_t rechercheDichotomique(const strVector& dico,const string& mot){
 
     size_t debut, milieu, fin, positionRetourne;
@@ -57,7 +107,7 @@ size_t rechercheDichotomique(const strVector& dico,const string& mot){
             }
         }
     }while(!trouve && debut <= fin);
-
+    //Si le mot a été trouvé
     if(trouve){
         positionRetourne = milieu;
     }
@@ -65,11 +115,20 @@ size_t rechercheDichotomique(const strVector& dico,const string& mot){
 }
 
 /**
- * [rechercheDichotomique description]
- * @param  itDebut [description]
- * @param  itFin   [description]
- * @param  mot     [description]
- * @return         [description]
+ * Recherche une chaine de charactère dans une liste ordrée
+ * Utilise un algorithm de recherche dichotomique :
+ * Le premier élément est celui du milieu de la liste
+ * Selon sa grandeur par rapport au mot chercher, on redéfinit les bornes de recherches
+ * Si il est plus grand, on cherche sur la partie de droite (milieu -> fin)
+ * Sinon sur la partie de gauche (Début -> milieu)
+ *
+ * Complexité en temps : O(log n)
+ *
+ * @param  itDebut Itérateur vector<string> du premier élément de la liste
+ * @param  itFin   Itérateur vector<string> du dernier élément de la liste
+ * @param  mot  string Mot a rechercher
+ * @return itRetourne itérateur du mot à chercher dans la liste
+ *         Retourne itFin initial si le mot n'est pas trouvé
  */
 strIterator rechercheDichotomique(strIterator itDebut,strIterator itFin,const string& mot){
 
@@ -105,12 +164,20 @@ strIterator rechercheDichotomique(strIterator itDebut,strIterator itFin,const st
     return itRetourne;
 }
 /**
- * [rechercheDichotomiqueRecursive description]
- * @param  dico  [description]
- * @param  mot   [description]
- * @param  debut [description]
- * @param  fin   [description]
- * @return       [description]
+ * Recherche une chaine de charactère dans une liste ordrée de manière récursive
+ * Utilise un algorithm de recherche dichotomique :
+ * Le premier élément est celui du milieu de la liste
+ * Selon sa grandeur par rapport au mot chercher, on redéfinit les bornes de recherches
+ * Si il est plus grand, on cherche sur la partie de droite (milieu -> fin)
+ * Sinon sur la partie de gauche (Début -> milieu)
+ *
+ * Complexité en temps : O(log n)
+ *
+ * @param  dico vector<string> Liste dans laquelle on cherche
+ * @param  mot  string Mot a rechercher
+ * @param debut Correspond à la borne inférieur de recherche
+ * @param fin Correspond à la borne supérieur de recherche
+ * @return bool Vrai si l'élément est trouvé, sinon faux
  */
 bool rechercheDichotomiqueRecursive(const strVector& dico,const string& mot, int debut = 0 , int fin = -1){
 
@@ -123,13 +190,16 @@ bool rechercheDichotomiqueRecursive(const strVector& dico,const string& mot, int
             return false;
         }
     }
+    //Pour la première itération, on définit la borne de fin
     if( fin == -1 ){
         fin = dico.size() - 1;
     }
+    //On redéfinit le nouveau milieu
     milieu = (debut+fin) / 2;
     if(dico.at(milieu) == mot ){
         return true;
     }
+    //On compare les deux mots et on redéfinit les bornes de recherche
     if(estPlusGrand(dico.at(milieu), mot)){
         return rechercheDichotomiqueRecursive(dico,mot,debut,milieu-1);
     }else{
@@ -137,13 +207,19 @@ bool rechercheDichotomiqueRecursive(const strVector& dico,const string& mot, int
     }
 }
 /**
- * Surcharge de rechercheDichotomiqueRecursive, avec des itérateurs en paramètres à la place du vecteur "dico"
- * Le fonctionnement de l'algorithme est le même
- * Nous utilisons néanmoins des fonctions spéciale de la lib. vector pour incrémenter les itérateur, tel que advance()
- * @param  debut [description]
- * @param  fin   [description]
- * @param  mot   [description]
- * @return       [description]
+ * Recherche une chaine de charactère dans une liste ordrée de manière récursive
+ * Utilise un algorithm de recherche dichotomique :
+ * Le premier élément est celui du milieu de la liste
+ * Selon sa grandeur par rapport au mot chercher, on redéfinit les bornes de recherches
+ * Si il est plus grand, on cherche sur la partie de droite (milieu -> fin)
+ * Sinon sur la partie de gauche (Début -> milieu)
+ *
+ * Complexité en temps : O(log n)
+ *
+ * @param  mot  string Mot a rechercher
+ * @param debut Itérateur vecteur<string> correspond à la borne inférieur de recherche
+ * @param fin   Itérateur vecteur<string>Correspond à la borne supérieur de recherche
+ * @return bool Vrai si l'élément est trouvé, sinon faux
  */
 bool rechercheDichotomiqueRecursive(strIterator debut,strIterator fin,const string& mot){
 
