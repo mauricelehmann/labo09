@@ -1,7 +1,27 @@
-#include "header/utilitaire.h"
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : 09
+ Fichier     : utilitaire.cpp
+ Auteur(s)   : Gabrielle Thurnherr, Maurice Lehmann
+ Date        : 13.01.2019
 
+ But         : Contient les fonctions de comparaison de deux string et de normalisation (tout les char en majuscule)
+
+ Compilateur : MinGW-g++
+ -----------------------------------------------------------------------------------
+*/
+
+#include "header/utilitaire.h"
 using namespace std;
 
+
+/**
+ * Compare deux string donnée selon un ordre alphabetique
+ * Si une string est identique mais contient des charactère en plus, elle est considérée plus grande
+ * @param  str1 Première string a comparer
+ * @param  str2 Deuxième string a comparer
+ * @return      Vrai si str1 est plus grande, sinon faux
+ */
 bool estPlusGrand(const string& str1, const string& str2){
     for( size_t indice = 0 ; indice < str1.size() ; indice++ ){
         //On check que l'indice ne dépasse pas la taille de str2
@@ -19,7 +39,10 @@ bool estPlusGrand(const string& str1, const string& str2){
     }
     return false ;
 }
-
+/**
+ * Normalise une string donnée, càd met tout ses charactères en majuscule
+ * @param str String a transformer
+ */
 void normaliserString(string& str){
     transform(str.begin(), str.end(),str.begin(), ::toupper);
 }
