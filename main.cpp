@@ -43,8 +43,8 @@ int main(){
         cout << "Retournant un iterateur (ici sa position) : "<< distance(dictionary.begin(),rechercheLineaire(dictionary.begin(),dictionary.end(),mot)) << endl;
         cout << endl;
         cout << "Fonctions de recherches dichotomiques (dans un dictionnaire ordre) :" << endl;
-        cout << "Retournant un indice de type size_t : " << rechercheDichotomique(orderedDictionary,mot) << endl;
-        cout << "Retournant un iterateur (ici sa position): " << distance(orderedDictionary.begin(),rechercheDichotomique(orderedDictionary.begin(),orderedDictionary.end(),mot)) << endl;
+        cout << "Retournant un indice de type size_t : " << rechercheDichotomique(nato,mot) << endl;
+        cout << "Retournant un iterateur (ici sa position): " << distance(nato.begin(),rechercheDichotomique(nato.begin(),nato.end(),mot)) << endl;
         cout << endl;
         cout << "Fonctions de recherches dichotomiques recursives (dans un dictionnaire ordre)" << endl;
 
@@ -54,8 +54,8 @@ int main(){
             Cela viens du fait des characteres spéciaux tel que le "-" ou "'" qui n'ont pas de place dans l'alphabet
         */
 
-        cout << "Retournant un vrai si le mot est trouve : " << boolalpha << rechercheDichotomiqueRecursive(nato,mot,0,-1) << endl;
-        cout << "Retournant un iterateur (ici sa position): " << rechercheDichotomiqueRecursive(nato.begin(),nato.end(),mot) << endl;
+        cout << "Retournant vrai si le mot est trouve (avec dictionnaire en parametre) : " << boolalpha << rechercheDichotomiqueRecursive(nato,mot,0,-1) << endl;
+        cout << "Retournant vrai si le mot est trouve (avec iterateurs en parametre) : " << rechercheDichotomiqueRecursive(nato.begin(),nato.end(),mot) << endl;
         cout << endl;
         cout << "Fonctions de tri a bulles :" << endl ;
         cout << "Fichier 'nato_shuffled.txt' orginial :" << endl ;
