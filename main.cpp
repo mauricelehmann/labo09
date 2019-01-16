@@ -11,7 +11,6 @@
  Compilateur : MinGW-g++
  -----------------------------------------------------------------------------------
 */
-#include <iostream> //pour les cout & cin
 #include "header/recherche.h"
 #include "header/lecture.h"
 #include "header/utilitaire.h"
@@ -64,7 +63,6 @@ int main(){
         inverser(otan);
         afficherDico(otan);
         cout << endl;
-
     }
     return EXIT_SUCCESS;
 }

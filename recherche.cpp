@@ -86,8 +86,6 @@ strIterator rechercheLineaire(strIterator itBegin,strIterator itEnd,const std::s
  * @param  mot  string Mot a rechercher
  * @return positionRetourne size_t  Position du mot à chercher dans la liste
  */
-
-
 size_t rechercheDichotomique(const strVector& dico,const string& mot){
 
     size_t debut, milieu, fin, positionRetourne;

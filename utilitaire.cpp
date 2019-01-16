@@ -12,7 +12,6 @@
 */
 
 #include "header/utilitaire.h"
-#include <iostream>
 using namespace std;
 
 
@@ -42,7 +41,7 @@ bool estPlusGrand(const string& str1, const string& str2){
 }
 /**
  * Normalise une string donnée, càd met tout ses charactères en majuscule
- * @param str String a transformer
+ * @param str String à transformer
  */
 void normaliserString(string& str){
     transform(str.begin(), str.end(),str.begin(), ::toupper);
