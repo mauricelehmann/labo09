@@ -12,6 +12,7 @@
 */
 
 #include "header/utilitaire.h"
+#include <iostream>
 using namespace std;
 
 

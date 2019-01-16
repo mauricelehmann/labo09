@@ -13,7 +13,9 @@
                f( dictionnaire, mot a rechercher )
                -> retourne un size_t correspondant à un indexe
 
-               Les fonctions recursive retourne un booléen, vrais pour trouvé, sinon faux
+               Les fonctions recursive retourne un booléen, vrais pour trouvé, sinon faux.
+               Les mots recherchés ne sont pas sensible à la casse, càd que le mot recherché
+               et les mots du dictionnaire sont tous les deux comparés en majuscule uniquement.
 
  Compilateur : MinGW-g++
  -----------------------------------------------------------------------------------
@@ -21,6 +23,7 @@
 
 #include "header/recherche.h"
 #include "header/utilitaire.h"
+
 using namespace std;
 
 /**
@@ -83,6 +86,8 @@ strIterator rechercheLineaire(strIterator itBegin,strIterator itEnd,const std::s
  * @param  mot  string Mot a rechercher
  * @return positionRetourne size_t  Position du mot à chercher dans la liste
  */
+
+
 size_t rechercheDichotomique(const strVector& dico,const string& mot){
 
     size_t debut, milieu, fin, positionRetourne;
@@ -98,19 +103,22 @@ size_t rechercheDichotomique(const strVector& dico,const string& mot){
         //Check si l'element du milieu est celui qu'on cherche
         if(dico.at(milieu) == mot){
             trouve = true;
+            positionRetourne = milieu;
         //Sinon l'element est plus petit, on regarde donc sur la fourchette du debut au milieu
         }else{
-            if(estPlusGrand(mot,dico.at(milieu))){
+            if(!estPlusGrand(dico.at(milieu),mot)){
                 debut = milieu + 1;
             }else{
                 fin = milieu - 1;
+                if(fin > dico.size()){
+                    trouve = true;
+                    positionRetourne = fin;
+                }
             }
         }
     }while(!trouve && debut <= fin);
     //Si le mot a été trouvé
-    if(trouve){
-        positionRetourne = milieu;
-    }
+
     return positionRetourne;
 }
 
@@ -150,7 +158,7 @@ strIterator rechercheDichotomique(strIterator itDebut,strIterator itFin,const st
             trouve = true;
         //Sinon l'element est plus petit, on regarde donc sur la fourchette du debut au milieu
         }else{
-            if(estPlusGrand(mot,*itMilieu)){
+            if(!estPlusGrand(*itMilieu,mot)){
                 itDebut = itMilieu + 1;
             }else{
                 itFin = itMilieu - 1;
@@ -201,8 +209,14 @@ bool rechercheDichotomiqueRecursive(const strVector& dico,const string& mot, int
     }
     //On compare les deux mots et on redéfinit les bornes de recherche
     if(estPlusGrand(dico.at(milieu), mot)){
+        if((unsigned)debut == milieu){
+            return false;
+        }
         return rechercheDichotomiqueRecursive(dico,mot,debut,milieu-1);
     }else{
+        if((unsigned)fin == milieu){
+            return false;
+        }
         return rechercheDichotomiqueRecursive(dico,mot,milieu+1,fin);
     }
 }
@@ -221,6 +235,7 @@ bool rechercheDichotomiqueRecursive(const strVector& dico,const string& mot, int
  * @param fin   Itérateur vecteur<string>Correspond à la borne supérieur de recherche
  * @return bool Vrai si l'élément est trouvé, sinon faux
  */
+
 bool rechercheDichotomiqueRecursive(strIterator debut,strIterator fin,const string& mot){
 
     strIterator milieu = debut;
@@ -234,13 +249,24 @@ bool rechercheDichotomiqueRecursive(strIterator debut,strIterator fin,const stri
     }
     //On definit le nouveau milieu
     advance(milieu,(distance(debut,fin) / 2 )) ;
+
     if(*milieu == mot ){
         return true;
     }
     if(estPlusGrand(*milieu, mot)){
+        //On teste si les bornes sont encore valides
+        if(debut == milieu){
+            return false;
+        }
+        //On décremente le milieu de 1
         advance(milieu,-1);
         return rechercheDichotomiqueRecursive(debut,milieu,mot);
     }else{
+        //On teste si les bornes sont encore valides
+        if(fin == milieu){
+            return false;
+        }
+        //On incrémente le milieu de 1
         advance(milieu,1);
         return rechercheDichotomiqueRecursive(milieu,fin,mot);
     }

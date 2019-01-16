@@ -26,7 +26,6 @@ int main(){
 
     dictionary          = lecture(dicoPath+"/dictionary.txt");
     orderedDictionary   = lecture(dicoPath+"/ordered_dictionary.txt");
-    //inverseDictionary   = lecture(dicoPath+"/inverse_dictionary.txt");
     nato                = lecture(dicoPath+"/nato.txt");
     natoShuffled        = lecture(dicoPath+"/nato_shuffled.txt");
     otan                = lecture(dicoPath+"/otan.txt");
@@ -43,19 +42,14 @@ int main(){
         cout << "Retournant un iterateur (ici sa position) : "<< distance(dictionary.begin(),rechercheLineaire(dictionary.begin(),dictionary.end(),mot)) << endl;
         cout << endl;
         cout << "Fonctions de recherches dichotomiques (dans un dictionnaire ordre) :" << endl;
-        cout << "Retournant un indice de type size_t : " << rechercheDichotomique(nato,mot) << endl;
-        cout << "Retournant un iterateur (ici sa position): " << distance(nato.begin(),rechercheDichotomique(nato.begin(),nato.end(),mot)) << endl;
+        cout << "Retournant un indice de type size_t : " << rechercheDichotomique(orderedDictionary,mot) << endl;
+
+        cout << "Retournant un iterateur (ici sa position): " << distance(orderedDictionary.begin(),rechercheDichotomique(orderedDictionary.begin(),orderedDictionary.end(),mot)) << endl;
         cout << endl;
         cout << "Fonctions de recherches dichotomiques recursives (dans un dictionnaire ordre)" << endl;
 
-        /*
-            Il semble que les rechercheDichotomique (en tout cas celle recursives) marche avec nato.txt et les petits dico
-            Les gros dictionnaire semble être trié de manière pas logique du tout !
-            Cela viens du fait des characteres spéciaux tel que le "-" ou "'" qui n'ont pas de place dans l'alphabet
-        */
-
-        cout << "Retournant vrai si le mot est trouve (avec dictionnaire en parametre) : " << boolalpha << rechercheDichotomiqueRecursive(nato,mot,0,-1) << endl;
-        cout << "Retournant vrai si le mot est trouve (avec iterateurs en parametre) : " << rechercheDichotomiqueRecursive(nato.begin(),nato.end(),mot) << endl;
+        cout << "Retournant vrai si le mot est trouve (avec dictionnaire en parametre) : " << boolalpha << rechercheDichotomiqueRecursive(orderedDictionary,mot,0,-1) << endl;
+        cout << "Retournant vrai si le mot est trouve (avec iterateurs en parametre) : " << rechercheDichotomiqueRecursive(orderedDictionary.begin(),orderedDictionary.end()-1,mot) << endl;
         cout << endl;
         cout << "Fonctions de tri a bulles :" << endl ;
         cout << "Fichier 'nato_shuffled.txt' orginial :" << endl ;
@@ -70,6 +64,7 @@ int main(){
         inverser(otan);
         afficherDico(otan);
         cout << endl;
+
     }
     return EXIT_SUCCESS;
 }
