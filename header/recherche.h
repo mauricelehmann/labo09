@@ -32,21 +32,21 @@
 
     /**
      * Recherche une chaine de charactère avec les élément d'une liste donnée
-     * Compare la chaine avec les élément de la liste
+     * Compare la chaine avec les éléments de la liste
      * Complexité en temps : O(n)
-     * @param  dico Liste dans laquelle on cherche
+     * @param  dico Liste dans laquelle on cherche un mot donné
      * @param  mot  string du mot a chercher
      * @return      Position du mot à chercher dans la liste
      *              Retourne size_t(-1) si le mot n'est pas dans la liste
      */
     size_t rechercheLineaire(const strVector& dico, const std::string& mot);
     /**
-     * Recherche une chaine de charactère avec les élément d'une liste donnée
-     * Compare la chaine avec les élément de la liste
+     * Recherche une chaine de charactère avec les éléments d'une liste donnée
+     * Compare la chaine avec les éléments de la liste
      * Complexité en temps : O(n)
      * @param  itBegin Itérateur vector<string> du premier élément de la liste
      * @param  itEnd   Itérateur vector<string> du dernier élément de la liste
-     * @param  mot     string du mot a chercher
+     * @param  mot     string du mot à chercher
      * @return      Iterateur vector<string> du mot à chercher dans la liste
      *              Retourne liste.end() si l'élément n'est pas trouvé
      */
