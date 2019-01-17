@@ -20,12 +20,13 @@ Dans le main :
 
 Fonctions :
 
-vector<string> separerMots(const string& ligne);
+Gabi :
+    fonction traitement du texte, pour enlever les ". , - &" , nombre etc...
+    vector<string> separerMots(const string& ligne);
 
-vector<string> lireTexte(const string& fichier);
+Momo :
+    vector<string> lireTexte(const string& fichier);
+    normaliserMot(); //A améliorer
 
-normaliserMot(); //A améliorer
-
+On verra :
 ordrerDictionnaire();
-
-fonction traitement du texte, pour enlever les ". , - &" , nombre etc...

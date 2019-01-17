@@ -25,7 +25,5 @@ int main(){
 
     dictionnaire = lecture(dicoPath+"dictionary.txt");
 
-
-
     return EXIT_SUCCESS;
 }
