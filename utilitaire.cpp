@@ -46,3 +46,15 @@ bool estPlusGrand(const string& str1, const string& str2){
 void normaliserString(string& str){
     transform(str.begin(), str.end(),str.begin(), ::toupper);
 }
+
+bool estValide(const char& c){
+
+    if((c >= 97 && c <= 122 ) || c == ' ' ){
+        return false;
+    }
+    return true;
+}
+
+void supprimerSymboles(string& ligne){
+    ligne.erase(remove_if(ligne.begin(), ligne.end(), estValide), ligne.end());
+}
