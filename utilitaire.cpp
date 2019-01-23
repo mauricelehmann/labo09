@@ -14,6 +14,50 @@
 #include "header/utilitaire.h"
 using namespace std;
 
+void supprimerSymboles(string& ligne){
+    //Tester le char
+    char lettre;
+    for(size_t c = 0 ; c < ligne.size() ; c++){
+        lettre = ligne.at(c);
+        //minuscule
+        if(!estValide(lettre)){
+            if(lettre == '\''){
+                if(c == 0 || c == ligne.size() - 1){
+                    ligne.replace(c,1," ");
+                }else if(!estValide(ligne.at(c-1)) || !estValide(ligne.at(c+1))){
+                    ligne.replace(c,1," ");
+                }
+            }else{
+                ligne.replace(c,1," ");
+            }
+        }else{
+            //ligne.at(c) = tolower(ligne.at(c));
+        }
+    }
+}
+
+bool estValide(const char& c){
+    if(c < 65 || c > 90){
+        if(c < 97 || c > 122){
+            return false;
+        }
+    }
+    return true;
+}
+
+vector<string> separerMots(const string& ligne){
+
+    vector<string> mots;
+    string delimiteur = " ";
+    size_t dernier = 0;
+    size_t suivant = 0;
+
+    while ((suivant = ligne.find(delimiteur, dernier)) != string::npos) {
+        mots.push_back(ligne.substr(dernier, suivant-dernier));
+        dernier = suivant + 1;
+    }
+    return mots;
+}
 
 /**
  * Compare deux string donnée selon un ordre alphabetique
@@ -44,17 +88,5 @@ bool estPlusGrand(const string& str1, const string& str2){
  * @param str String à transformer
  */
 void normaliserString(string& str){
-    transform(str.begin(), str.end(),str.begin(), ::toupper);
-}
-
-bool estValide(const char& c){
-
-    if((c >= 97 && c <= 122 ) || c == ' ' ){
-        return false;
-    }
-    return true;
-}
-
-void supprimerSymboles(string& ligne){
-    ligne.erase(remove_if(ligne.begin(), ligne.end(), estValide), ligne.end());
+    transform(str.begin(), str.end(),str.begin(), ::tolower);
 }

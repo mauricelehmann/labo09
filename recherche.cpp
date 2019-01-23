@@ -26,6 +26,33 @@
 
 using namespace std;
 
+
+void correcteurOrthographique(const vector<strVector>& lignesLivre, const strVector& dico){
+
+    size_t resultat;
+    size_t tailleDico = dico.size();
+    vector<string> motsNonTrouves = {};
+    string motNormalise ;
+
+    for(size_t ligne = 0 ; ligne < lignesLivre.size() ; ligne ++){
+        for(size_t mot = 0 ; mot < lignesLivre.at(ligne).size() ; mot++){
+            motNormalise = lignesLivre.at(ligne).at(mot);
+            normaliserString(motNormalise);
+            //Si le mot est deja présent dans la liste des mots "faux"
+            //On ne le recherche pas dans le dico
+            if(rechercheLineaire(motsNonTrouves,motNormalise) == size_t(-1)){
+                resultat = rechercheDichotomique(dico,motNormalise);
+                if( resultat == tailleDico){
+                    motsNonTrouves.push_back(motNormalise);
+                    cout << ligne << " : " << lignesLivre.at(ligne).at(mot) << endl;
+                }
+            }else{
+                cout << ligne << " : " << lignesLivre.at(ligne).at(mot) << endl;
+            }
+        }
+    }
+}
+
 /**
  * Recherche une chaine de charactère avec les élément d'une liste donnée
  * Compare la chaine avec les élément de la liste

@@ -11,6 +11,9 @@
  Compilateur : MinGW-g++
  -----------------------------------------------------------------------------------
 */
+
+//TODO ESSAYER DE METTRE LES DEFINE ICI
+
 #include "header/recherche.h"
 #include "header/lecture.h"
 #include "header/utilitaire.h"
@@ -19,11 +22,13 @@ using namespace std;
 
 int main(){
 
-    string dicoPath = "dico/";
-    string mot;
-    vector<string> dictionnaire;
+    string dicoPath = "files/";
+    vector<vector<string>> lignesLivre = lectureTexte(dicoPath + "input_sh.txt");
+    vector<string> dico = lectureDico(dicoPath + "dictionary.txt");
+    //On trie le dictionnaire
+    sort(dico.rbegin(),dico.rend(),estPlusGrand);
 
-    dictionnaire = lecture(dicoPath+"dictionary.txt");
+    correcteurOrthographique(lignesLivre,dico);
 
     return EXIT_SUCCESS;
 }

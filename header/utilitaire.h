@@ -16,6 +16,16 @@
     #include <string>
     #include <algorithm> //transform
     #include <ctype.h> //toupper
+    #include <vector>
+
+    //TODO FAIRE LES DEFINE
+
+    void supprimerSymboles(std::string& ligne);
+
+    bool estValide(const char& c);
+
+    std::vector<std::string> separerMots(const std::string& ligne);
+
     /**
      * Compare deux string donnée selon un ordre alphabetique
      * Si une string est identique mais contient des charactère en plus, elle est considérée plus grande

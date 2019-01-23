@@ -20,13 +20,17 @@
     #include <fstream> // pour ifstream
     #include <iostream> //pour les cout
 
+    //TODO FAIRE LES DEFINE DES VECTOR
+
+    std::vector<std::vector<std::string>> lectureTexte(const std::string& fichier);
+
     /**
      * Rempli et retourne un vecteur string contenant les éléments d'un fichier
      * Converti également les mots en majuscule pour les futurs comparaisons
      * @param  fichier nom du fichier à lire
      * @return         vecteur string, ou chaque élément correspond à chaque ligne du fichier
      */
-    std::vector<std::string> lecture(const std::string& fichier);
+    std::vector<std::string> lectureDico(const std::string& fichier);
     /**
      * Inverse l'ordre des éléments d'une liste donnée dans un format vector<string>
      * @param dico Liste à inverser

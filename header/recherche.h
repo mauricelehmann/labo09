@@ -26,9 +26,12 @@
     #include <vector>
     #include <ctype.h> //toupper()
     #include <algorithm> //transform()
+    #include <iostream>
 
     #define strVector std::vector<std::string>
     #define strIterator strVector::iterator
+
+    void correcteurOrthographique(const std::vector<strVector>& livre, const strVector& dico);
 
     /**
      * Recherche une chaine de charactère avec les élément d'une liste donnée

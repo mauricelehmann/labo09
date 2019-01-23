@@ -16,13 +16,32 @@
 
 using namespace std;
 
+
+vector<vector<string>> lectureTexte(const string& fichier){
+
+    vector<vector<string>> texte;
+    //Ouverture du fichier via un flux
+    ifstream s(fichier);
+    string ligne;
+    //Pour chaque retour à la ligne du fichier...
+    while (getline(s, ligne)) {
+        //Traiter la ligne -> enlever les charactères spéciaux etc... -> Gabrielle
+        supprimerSymboles(ligne);
+        //On insert un vecteur string, correspondant aux mots de la ligne,
+        //dans le vecteur texte
+        texte.push_back(separerMots(ligne));
+    }
+    s.close();
+    return texte;
+}
+
 /**
  * Rempli et retourne un vecteur string contenant les éléments d'un fichier
  * Converti également les mots en majuscule pour les futurs comparaisons
  * @param  fichier nom du fichier à lire
  * @return         vecteur string, ou chaque élément correspond à chaque ligne du fichier
  */
-vector<string> lecture(const string& fichier){
+vector<string> lectureDico(const string& fichier){
 
     vector<string> v;
     //Ouverture du fichier via un flux
