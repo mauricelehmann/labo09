@@ -1,11 +1,13 @@
 /*
  -----------------------------------------------------------------------------------
- Laboratoire : 09
+ Laboratoire : 09b
  Fichier     : recherche.cpp
  Auteur(s)   : Gabrielle Thurnherr, Maurice Lehmann
- Date        : 13.01.2019
+ Date        : 20.01.2019
 
- But         : Contient les fonctions de recherche linéaire, dichotomique (recursive et simple)
+ But         : Contient la fonction principal "correcteurOrthographique" retournant tous le mots non-présent
+               du dictionnaire dans un texte.
+               Contient les fonctions de recherche linéaire, dichotomique (recursive et simple)
                Chaque fonction est surchargée afin d'accepter plusieurs type de paramètres tel que :
                f( iterateur de debut du dico , iterateur de fin du dico , mot a rechercher )
                -> retourne un itérateur de vecteur
@@ -26,27 +28,39 @@
 
 using namespace std;
 
+/**
+ * Recherche chaque mot d'un texte donné, dans un dictionnaire donné.
+ * Si le mot n'est pas trouvé, on l'affiche ainsi que le numéro de la ligne
+ * Si le mot à déjà été detecté comme "non-trouvé" on n'applique pas la recherche dichotomique
+ * sur le dictionnaire en entier.
+ * @param lignesLivre vecteur de vecteur string, correspondans à chaque ligne et chaque mot du texte à corriger
+ * @param dico        vecteur string dictionnaire
+ */
+void correcteurOrthographique(const vectorStrVector& lignesLivre, const strVector& dico){
 
-void correcteurOrthographique(const vector<strVector>& lignesLivre, const strVector& dico){
-
-    size_t resultat;
+    size_t resultat; //Résulat des recherche dichotomique
     size_t tailleDico = dico.size();
-    vector<string> motsNonTrouves = {};
     string motNormalise ;
-
+    //Liste des mots non-trouvés dans le dictionnaire
+    strVector motsNonTrouves = {};
+    //Pour chaque ligne du texte :
     for(size_t ligne = 0 ; ligne < lignesLivre.size() ; ligne ++){
+        //Pour chaque mot :
         for(size_t mot = 0 ; mot < lignesLivre.at(ligne).size() ; mot++){
             motNormalise = lignesLivre.at(ligne).at(mot);
             normaliserString(motNormalise);
-            //Si le mot est deja présent dans la liste des mots "faux"
-            //On ne le recherche pas dans le dico
+            //Si le mot n'est pas présent dans la liste des mots "faux",
+            //on fait une recherche dichotomique dans le dico
             if(rechercheLineaire(motsNonTrouves,motNormalise) == size_t(-1)){
                 resultat = rechercheDichotomique(dico,motNormalise);
+                //Si le mot n'est pas trouvé
                 if( resultat == tailleDico){
                     motsNonTrouves.push_back(motNormalise);
                     cout << ligne << " : " << lignesLivre.at(ligne).at(mot) << endl;
                 }
             }else{
+                //Le mot est deja présent dans la liste des mots non-trouvés
+                //On l'affiche quand même avec le numéro de ligne
                 cout << ligne << " : " << lignesLivre.at(ligne).at(mot) << endl;
             }
         }

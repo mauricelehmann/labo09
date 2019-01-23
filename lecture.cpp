@@ -1,9 +1,9 @@
 /*
  -----------------------------------------------------------------------------------
- Laboratoire : 09
+ Laboratoire : 09b
  Fichier     : lecture.cpp
  Auteur(s)   : Gabrielle Thurnherr, Maurice Lehmann
- Date        : 13.01.2019
+ Date        : 20.01.2019
 
  But         : Contient les fonctions de lecture de fichiers texte, de tri, d'inversion et d'affichage
 
@@ -16,10 +16,14 @@
 
 using namespace std;
 
+/**
+ * Lit un fichier texte, supprime les symboles non-alphabétiques, puis retourne un vecteur de vecteur string
+ * Chaques vecteur<string> correspond à une ligne, contenant chaques mots séparés.
+ * @param fichier nom du fichier externe à lire
+ */
+vectorStrVector lectureTexte(const string& fichier){
 
-vector<vector<string>> lectureTexte(const string& fichier){
-
-    vector<vector<string>> texte;
+    vectorStrVector texte;
     //Ouverture du fichier via un flux
     ifstream s(fichier);
     string ligne;
@@ -41,9 +45,9 @@ vector<vector<string>> lectureTexte(const string& fichier){
  * @param  fichier nom du fichier à lire
  * @return         vecteur string, ou chaque élément correspond à chaque ligne du fichier
  */
-vector<string> lectureDico(const string& fichier){
+strVector lectureDico(const string& fichier){
 
-    vector<string> v;
+    strVector v;
     //Ouverture du fichier via un flux
     ifstream s(fichier);
     string line;
@@ -74,7 +78,7 @@ void inverser(vector<string>& dico) {
  * Utilise un algorithm dis "Bubble sort"
  * @param dico Liste à trier
  */
-void triABulle(vector<string>& dico){
+void triABulle(strVector& dico){
     bool tableauTrie;
     //On itére dans la liste en commençant par la fin
     for(size_t i = dico.size() - 1 ; i > 0 ; i--){
@@ -97,7 +101,7 @@ void triABulle(vector<string>& dico){
  * Affiche une liste donnée dans un format vector<string>
  * @param dico Liste à afficher
  */
-void afficherDico(const std::vector<std::string>& dico){
+void afficherDico(const strVector& dico){
     for(auto mot : dico){
         cout << mot << endl;
     }

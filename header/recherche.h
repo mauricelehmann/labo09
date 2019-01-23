@@ -1,11 +1,13 @@
 /*
  -----------------------------------------------------------------------------------
- Laboratoire : 09
+ Laboratoire : 09b
  Fichier     : recherche.h
  Auteur(s)   : Gabrielle Thurnherr, Maurice Lehmann
- Date        : 13.01.2019
+ Date        : 20.01.2019
 
- But         : Contient les prototype de fonctions de recherche linéaire, dichotomique (recursive et simple)
+ But         : Contient la fonction principal "correcteurOrthographique" retournant tous le mots non-présent
+               du dictionnaire dans un texte.
+               Contient les prototype de fonctions de recherche linéaire, dichotomique (recursive et simple)
                Chaque fonction est surchargée afin d'accepter plusieurs type de paramètres tel que :
                f( iterateur de debut du dico , iterateur de fin du dico , mot a rechercher )
                -> retourne un itérateur de vecteur
@@ -30,9 +32,16 @@
 
     #define strVector std::vector<std::string>
     #define strIterator strVector::iterator
-
-    void correcteurOrthographique(const std::vector<strVector>& livre, const strVector& dico);
-
+    #define vectorStrVector std::vector<strVector>
+    /**
+     * Recherche chaque mot d'un texte donné, dans un dictionnaire donné.
+     * Si le mot n'est pas trouvé, on l'affiche ainsi que le numéro de la ligne
+     * Si le mot à déjà été detecté comme "non-trouvé" on n'applique pas la recherche dichotomique
+     * sur le dictionnaire en entier.
+     * @param lignesLivre vecteur de vecteur string, correspondans à chaque ligne et chaque mot du texte à corriger
+     * @param dico        vecteur string dictionnaire
+     */
+    void correcteurOrthographique(const vectorStrVector& livre, const strVector& dico);
     /**
      * Recherche une chaine de charactère avec les élément d'une liste donnée
      * Compare la chaine avec les éléments de la liste

@@ -1,12 +1,13 @@
 /*
  -----------------------------------------------------------------------------------
- Laboratoire : 09
+ Laboratoire : 09b
  Fichier     : utilitaire.h
  Auteur(s)   : Gabrielle Thurnherr, Maurice Lehmann
- Date        : 13.01.2019
+ Date        : 20.01.2019
 
- But         : Contient les prototypes des fonctions de comparaison de deux string et de normalisation (tout les char en majuscule)
-
+ But         : Contient les prototypes fonctions de suppression des symbole non-alphabetique, de controle de charactère,
+               de séparation d'une chaine en mot, de comparaison de deux string
+               et de normalisation (tout les char en majuscule).
  Compilateur : MinGW-g++
  -----------------------------------------------------------------------------------
 */
@@ -18,14 +19,27 @@
     #include <ctype.h> //toupper
     #include <vector>
 
-    //TODO FAIRE LES DEFINE
+    #define strVector std::vector<std::string>
 
+    /**
+     * Supprime tous symboles non-alphabetique
+     * @param ligne Chaine de charactère à modifier
+     */
     void supprimerSymboles(std::string& ligne);
-
+    /**
+     * Test si un charactere est alphabetique ou non.
+     * Prend en compte les majuscule et minuscule
+     * @param  c charactere à tester
+     * @return   True si c'est un charactere alphabetique, sinon false
+     */
     bool estValide(const char& c);
-
-    std::vector<std::string> separerMots(const std::string& ligne);
-
+    /**
+     * Sépare une chaine de charactere en mot distinct, puis retourne un vecteur<string>
+     * les contenant.
+     * @param  ligne Ligne à séparer
+     * @return       vector<string> contenant chaque mot de la chaine donnée
+     */
+    strVector separerMots(const std::string& ligne);
     /**
      * Compare deux string donnée selon un ordre alphabetique
      * Si une string est identique mais contient des charactère en plus, elle est considérée plus grande

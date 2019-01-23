@@ -1,18 +1,16 @@
 /*
  -----------------------------------------------------------------------------------
- Laboratoire : 09
+ Laboratoire : 09b
  Fichier     : main.cpp
  Auteur(s)   : Gabrielle Thurnherr, Maurice Lehmann
- Date        : 13.01.2019
+ Date        : 20.01.2019
 
- But         : Fichier main, qui montre le bon fonctionnement des 9 fonctions à présenter
-               Plusieurs types de dictionnaires sont utilisés selon les fonctions
+ But         : Initialise et rempli les vecteur dictionnaire et texte à corriger
+               Appelle la fonction principale correcteurOrthographique(texte,dico)
 
  Compilateur : MinGW-g++
  -----------------------------------------------------------------------------------
 */
-
-//TODO ESSAYER DE METTRE LES DEFINE ICI
 
 #include "header/recherche.h"
 #include "header/lecture.h"
@@ -23,11 +21,12 @@ using namespace std;
 int main(){
 
     string dicoPath = "files/";
+    //On découpe chaque lignes du texte à tester en vecteur contenant chaques mot de la ligne.
     vector<vector<string>> lignesLivre = lectureTexte(dicoPath + "input_sh.txt");
     vector<string> dico = lectureDico(dicoPath + "dictionary.txt");
     //On trie le dictionnaire
     sort(dico.rbegin(),dico.rend(),estPlusGrand);
-
+    //Affiche la liste des mots non-trouvés dans le dictionnaire et le numéro de ligne.
     correcteurOrthographique(lignesLivre,dico);
 
     return EXIT_SUCCESS;

@@ -1,9 +1,9 @@
 /*
  -----------------------------------------------------------------------------------
- Laboratoire : 09
+ Laboratoire : 09b
  Fichier     : lecture.h
  Auteur(s)   : Gabrielle Thurnherr, Maurice Lehmann
- Date        : 13.01.2019
+ Date        : 20.01.2019
 
  But         : Contient prototype des fonctions de lecture de fichiers texte, de tri, d'inversion et d'affichage,
                ainsi que les include des librairies nécessaires.
@@ -20,9 +20,15 @@
     #include <fstream> // pour ifstream
     #include <iostream> //pour les cout
 
-    //TODO FAIRE LES DEFINE DES VECTOR
+    #define strVector std::vector<std::string>
+    #define vectorStrVector std::vector<strVector>
 
-    std::vector<std::vector<std::string>> lectureTexte(const std::string& fichier);
+    /**
+     * Lit un fichier texte, supprime les symboles non-alphabétiques, puis retourne un vecteur de vecteur string
+     * Chaques vecteur<string> correspond à une ligne, contenant chaques mots séparés.
+     * @param fichier nom du fichier externe à lire
+     */
+    vectorStrVector lectureTexte(const std::string& fichier);
 
     /**
      * Rempli et retourne un vecteur string contenant les éléments d'un fichier
@@ -30,21 +36,21 @@
      * @param  fichier nom du fichier à lire
      * @return         vecteur string, ou chaque élément correspond à chaque ligne du fichier
      */
-    std::vector<std::string> lectureDico(const std::string& fichier);
+    strVector lectureDico(const std::string& fichier);
     /**
      * Inverse l'ordre des éléments d'une liste donnée dans un format vector<string>
      * @param dico Liste à inverser
      */
-    void inverser(std::vector<std::string>& dico);
+    void inverser(strVector& dico);
     /**
      * Trie une liste donnée dans un format vector<string>
      * Utilise un algorithm dis "Bubble sort"
      * @param dico Liste à trier
      */
-    void triABulle(std::vector<std::string>& dico);
+    void triABulle(strVector& dico);
     /**
      * Affiche une liste donnée dans un format vector<string>
      * @param dico Liste à afficher
      */
-    void afficherDico(const std::vector<std::string>& dico);
+    void afficherDico(const strVector& dico);
 #endif // LECTURE_H
